@@ -1,0 +1,16 @@
+<h1> Get Your Playlist Info </h1>
+
+<%= form_for(@playlist) do |f| %>
+	<%= f.label :username %> 
+	<%= f.text_field :username %> <br> <br>
+	<%= f.label :playlist_id, "Playlist ID" %>
+	<%= f.text_field :playlist_id %><br> <br>
+	<%= f.submit "Look Up My playlist" %>
+<% end %> 
+
+
+<br>
+<br>
+
+<%= link_to 'Sign in with Spotify', '/auth/spotify' %>
+

@@ -4,8 +4,7 @@ class PlaylistsController < ApplicationController
 	def show 
 		@playlist = Playlist.find_by(id: params[:id])
 		@spotify_playlist =  RSpotify::Playlist.find(@playlist.username, @playlist.playlist_id)
-		p @spotify_playlist
-
+		@tracks = @spotify_playlist.tracks
 	end
 
 	def new

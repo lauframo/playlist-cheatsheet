@@ -1,1 +1,17 @@
 <h1>you are here</h1>
+
+
+<div id="playlist">
+	<h3> About <%= @spotify_playlist.name %> playlist </h3>
+	<p> Number of tracks: <%= @tracks.count %>
+	<ol>
+		<% @tracks.each do |track| %>
+		<li> <%= track.name %> by <%= track.artists.first.name %></li>
+			<ul>
+				<li> About the track: <%= LastFM::Track.get_info(:artist => track.artists.first.name, :track => track.name)  %> </li>
+				<li>  About the artist: <%= LastFM::Artist.get_info(:artist => track.artists.first.name)["artist"]["bio"]["summary"] %></li><br>
+				<li> 
+			</ul>
+		<% end %>
+	</ol>
+</div>	

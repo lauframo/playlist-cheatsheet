@@ -6,12 +6,26 @@
 	<p> Number of tracks: <%= @tracks.count %>
 	<ol>
 		<% @tracks.each do |track| %>
-		<li> <%= track.name %> by <%= track.artists.first.name %></li>
-			<ul>
-				<li> About the track: <%= LastFM::Track.get_info(:artist => track.artists.first.name, :track => track.name)  %> </li>
-				<li>  About the artist: <%= LastFM::Artist.get_info(:artist => track.artists.first.name)["artist"]["bio"]["summary"] %></li><br>
-				<li> 
-			</ul>
+			<% track_info = LastFM::Track.get_info(:artist => track.artists.first.name, :track => track.name)["track"] %>
+			<% artist_info = LastFM::Artist.get_info(:artist => track.artists.first.name)["artist"]["bio"]["summary"]  %>
+			<% album_info = LastFM::Album.get_info(:artist => track.artists.first.name, :album => track.album.name)["album"] %>
+			<li> <%= track.name %> by <%= track.artists.first.name %></li>
+				<ul>
+					<li> About the track: 
+						<% if track_info["wiki"] %>
+							<%= track_info["wiki"]["summary"] %>
+						<% else %>
+							"sorry" 
+						<% end %></li><br>
+					<li>  About the artist: <%= artist_info %></li><br>
+					<li>  About the album: 
+						<% if album_info["wiki"] %>
+							<%= album_info["wiki"]["summary"] %>
+						<% else %>
+							"sorry"
+						<% end %>
+					</li>
+				</ul>
 		<% end %>
 	</ol>
 </div>	

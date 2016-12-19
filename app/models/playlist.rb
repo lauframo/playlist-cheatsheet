@@ -7,4 +7,10 @@ class Playlist < ApplicationRecord
 		@spotify_playlist = RSpotify::Playlist.find(self.username, self.playlist_id)
 	end
 
+	def get_tracks
+		@tracks = self.spotify_playlist.tracks
+	end
+
+
+
 end

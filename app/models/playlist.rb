@@ -8,7 +8,10 @@ class Playlist < ApplicationRecord
 	end
 
 	def get_tracks
-		@tracks = self.spotify_playlist.tracks
+		tracks = self.spotify_playlist.tracks
+		tracks.each do |track|
+			Song.new()
+		end
 	end
 
 

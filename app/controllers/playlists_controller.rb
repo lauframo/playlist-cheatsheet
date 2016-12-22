@@ -14,10 +14,7 @@ class PlaylistsController < ApplicationController
 	def create
 		@playlist = Playlist.find_or_initialize_by(playlist_params)
 		if @playlist.save
-			@spotify_playlist = @playlist.spotify_playlist
-			@tracks = @playlist.get_tracks
-			p @spotify_playlist
-			p @tracks
+			@playlist.get_tracks
 		else
 			render 'new'
 		end

@@ -1,24 +1,8 @@
-# README
+# About
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+As one of the radio hosts at my college radio station, I prepped for my show by creating a playlist of my sets and researching each track and artist. This resulted in a million tabs and endless Google searches. 
 
-Things you may want to cover:
+Now that I'm out, I still find my self going down Wikipedia k-holes when discovering new music- I hope to make this a little bit easier by leveraging the Spotify and LastFM apps to create a simple app that will let any Spotify account owner get acquainted with their music in a matter of minutes.
 
-* Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+More to come soon!

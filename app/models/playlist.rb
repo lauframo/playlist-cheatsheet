@@ -1,6 +1,7 @@
 class Playlist < ApplicationRecord
 
-	has_many :songs, through: :plalylist_songs
+	has_many :playlist_songs
+	has_many :songs, through: :playlist_songs
 
 	before_save :get_tracks
 
@@ -18,7 +19,7 @@ class Playlist < ApplicationRecord
 		tracks.each do |track|
 			artist = Artist.find_or_create_by(name: track.artists.first.name)
 			album = Album.find_or_create_by(name: track.album.name, artist_id: artist.id)
-			song = Song.find_or_create_by(name: track.name, artist_id: artist.id, album_id: album.id)
+			self.songs << Song.find_or_create_by(name: track.name, artist_id: artist.id, album_id: album.id)
 		end
 	end
 

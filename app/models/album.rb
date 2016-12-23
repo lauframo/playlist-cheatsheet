@@ -9,11 +9,11 @@ class Album < ApplicationRecord
 	private
 
 	def get_summary
-		summary = LastFM::Album.get_info(artist: Artist.find_by(id: self.artist_id).name, album: self.name)["album"]["wiki"]
-		if summary == nil 
+		summary = LastFM::Album.get_info(artist: Artist.find_by(id: self.artist_id).name, album: self.name)
+		if summary == nil || summary.class != String
 			self.summary = "No Album Info Available"
 		else
-			self.summary = summary["summary"]
+			self.summary = summary["album"]["wiki"]["summary"]
 		end
 	end
 

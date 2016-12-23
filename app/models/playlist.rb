@@ -13,17 +13,12 @@ class Playlist < ApplicationRecord
 	def get_tracks
 		tracks = self.spotify_playlist.tracks
 		tracks.each do |track|
+			puts "artist: #{track.artists.first.name}"
+			puts "album: #{track.album.name}"
+			puts "song: #{track.name}"
 			artist = Artist.find_or_create_by(name: track.artists.first.name)
-			p artist
-			p "-------"
 			album = Album.find_or_create_by(name: track.album.name, artist_id: artist.id)
-			p album
-			p "--------"
-			p track.album.name
-			p album.name
-			p album.summary
-			p album.errors.full_messages
-			# Song.find_or_create_by(name: track.name, artist_id: artist, album_id: album)
+			song = Song.find_or_create_by(name: track.name, artist_id: artist.id, album_id: album.id)
 		end
 	end
 

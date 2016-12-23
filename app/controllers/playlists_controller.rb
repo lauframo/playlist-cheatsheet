@@ -3,8 +3,6 @@ class PlaylistsController < ApplicationController
 
 	def show 
 		@playlist = Playlist.find_by(id: params[:id])
-		@spotify_playlist =  RSpotify::Playlist.find(@playlist.username, @playlist.playlist_id)
-		@tracks = @spotify_playlist.tracks
 	end
 
 	def new
@@ -14,7 +12,7 @@ class PlaylistsController < ApplicationController
 	def create
 		@playlist = Playlist.find_or_initialize_by(playlist_params)
 		if @playlist.save
-			@playlist.get_tracks
+			p "ya did it"
 		else
 			render 'new'
 		end

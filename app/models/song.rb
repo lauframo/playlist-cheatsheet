@@ -9,10 +9,11 @@ class Song < ApplicationRecord
 	validates :name, presence: true, uniqueness: { scope: :artist_id }
 	validates_presence_of :name, :artist_id, :album_id
 
+	private
+
 	def get_summary
 		summary = LastFM::Track.get_info(artist: Artist.find_by(id: self.artist_id).name, track: self.name)["track"]["wiki"]
-		# p summary
-		if summary == nil || summary.class == Hash
+		if summary == nil
 			self.summary = "No Song Info Available"
 		else
 			self.summary = summary["summary"]

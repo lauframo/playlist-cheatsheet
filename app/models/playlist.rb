@@ -12,6 +12,8 @@ class Playlist < ApplicationRecord
 
 	def spotify_playlist
 		@spotify_playlist = RSpotify::Playlist.find(self.username, self.playlist_id)
+		self.name = @spotify_playlist.name
+		@spotify_playlist
 	end
 
 	def get_tracks

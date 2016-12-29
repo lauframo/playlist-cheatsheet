@@ -14,6 +14,10 @@ class Album < ApplicationRecord
 		else
 			self.summary = summary["album"]["wiki"]["summary"]
 		end
+
+		self.image = summary["album"]["image"][2]["#text"]
 	end
+
+
 
 end

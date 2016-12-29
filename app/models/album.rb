@@ -6,11 +6,10 @@ class Album < ApplicationRecord
 
 	validates :name, presence: true, uniqueness: { scope: :artist_id }
 
-	private
 
 	def get_summary
 		summary = LastFM::Album.get_info(artist: Artist.find_by(id: self.artist_id).name, album: self.name)
-		if summary == nil || summary.class != String
+		if summary == nil || summary["album"]["wiki"] == nil
 			self.summary = "No Album Info Available"
 		else
 			self.summary = summary["album"]["wiki"]["summary"]

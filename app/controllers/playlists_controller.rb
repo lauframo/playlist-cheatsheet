@@ -3,6 +3,7 @@ class PlaylistsController < ApplicationController
 
 	def show 
 		@playlist = Playlist.find_by(id: params[:id])
+		p @playlist
 	end
 
 	def new
@@ -12,7 +13,7 @@ class PlaylistsController < ApplicationController
 	def create
 		@playlist = Playlist.find_or_initialize_by(playlist_params)
 		if @playlist.save
-			p "ya did it"
+			redirect_to @playlist
 		else
 			render 'new'
 		end

@@ -10,12 +10,16 @@ class Artist < ApplicationRecord
 	private
 	
 	def get_summary
-		summary =  LastFM::Artist.get_info(:artist => self.name)["artist"]["bio"]["summary"]
+		info = LastFM::Artist.get_info(:artist => self.name)
+		summary =  info["artist"]["bio"]["summary"]
 		if summary == nil
 			self.summary = "No Bio Available"
 		else 
 			self.summary = summary
 		end
+
+		self.image = info["artist"]["image"][2]["#text"]
+
 	end
 
 

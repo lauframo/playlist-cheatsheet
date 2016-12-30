@@ -6,14 +6,12 @@ class Playlist < ApplicationRecord
 	before_save :get_tracks
 
 	validates_presence_of :username, :playlist_id
-	validates :playlist_id, uniqueness: true
+	validates_uniqueness_of :playlist_id
 
 	private
 
 	def spotify_playlist
 		@spotify_playlist = RSpotify::Playlist.find(self.username, self.playlist_id)
-		self.name = @spotify_playlist.name
-		@spotify_playlist
 	end
 
 	def get_tracks

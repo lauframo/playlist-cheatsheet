@@ -10,7 +10,9 @@
 				<ul>
 					<li> About the track: 
 						 <%= song.summary %></li> <br>
-					<li>  About the artist: <%= song.artist.summary %></li><br>
+					<li>  About the artist: 
+						<img src="<%= song.artist.image %>">
+						<%= song.artist.summary %></li><br>
 					<li>  About the album: 
 						<img src="<%= song.album.image %>">
 						<%= song.album.name %> <br>

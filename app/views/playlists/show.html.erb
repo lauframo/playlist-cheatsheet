@@ -9,7 +9,7 @@
 			<li> <%= song.name %> by <%= song.artist.name %></li>
 				<ul>
 					<li> About the track: 
-						 <%= song.summary %></li> <br>
+						 <%= song.view_summary %></li> <br>
 					<li>  About <%= song.artist.name %>: 
 						<br> 
 						<img src="<%= song.artist.image %>"> <br>
@@ -18,7 +18,7 @@
 						<br>
 						<img src="<%= song.album.image %>"><br>
 						<%= song.album.name %> <br>
-						<%= song.album.summary %>
+						<%= song.album.view_summary %>
 						<br>
 					</li><br>
 				</ul>

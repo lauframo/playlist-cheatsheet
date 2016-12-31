@@ -7,7 +7,7 @@ class Artist < ApplicationRecord
 	validates :name, presence: true, uniqueness: true
 
 	def view_summary
-		self.summary.gsub(/\s\W[a-z]{1}\s\D*\W/, '.')
+		self.summary.gsub(/\s\W[a-z]\s.*\W/, '')
 	end
 
 

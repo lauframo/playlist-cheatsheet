@@ -11,7 +11,7 @@ class Song < ApplicationRecord
 	validates_presence_of :name, :artist_id, :album_id
 
 	def view_summary
-		self.summary.gsub(/\s\W[a-z]{1}\s\D*\W/, '.')
+		self.summary.gsub(/\s\W[a-z]\s.*\W/, '')
 	end
 
 	private

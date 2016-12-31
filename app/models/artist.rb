@@ -6,6 +6,10 @@ class Artist < ApplicationRecord
 
 	validates :name, presence: true, uniqueness: true
 
+	def view_summary
+		self.summary.gsub(/\s\W[a-z]{1}\s\D*\W/, '.')
+	end
+
 
 	private
 	
@@ -19,7 +23,6 @@ class Artist < ApplicationRecord
 		end
 
 		self.image = info["artist"]["image"][2]["#text"]
-
 	end
 
 

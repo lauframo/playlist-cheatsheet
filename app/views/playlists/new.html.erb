@@ -1,11 +1,17 @@
 <h1> Get Your Playlist Info </h1>
 
-<%= form_for(@playlist) do |f| %>
-	<%= f.label :username %> 
-	<%= f.text_field :username %> <br> <br>
-	<%= f.label :playlist_id, "Playlist ID" %>
-	<%= f.text_field :playlist_id %><br> <br>
-	<%= f.submit "Look Up My playlist" %>
+<%= form_for @playlist, :html => { :class => "form-inline"} do |f| %>
+	<div class="form-group">
+		<%= f.label :username, class: "form-control", for: "inputusername" %> 
+		<%= f.text_field :username, class: "form-control", id: "inputusername" %> <br> <br>
+	</div>
+	<div class="form-group">
+		<%= f.label :playlist_id, "Playlist ID", class: "form-control", for: "inputplaylist" %>
+		<%= f.text_field :playlist_id, class: "form-control", for: "inputplaylist"  %><br> <br>
+	</div>
+	<!-- <div class="form-group"> -->
+		<%= f.submit "Look Up My playlist", class: "btn btn-primary" %>
+	<!-- </div> -->
 <% end %> 
 
 

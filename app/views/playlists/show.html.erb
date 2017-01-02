@@ -1,20 +1,22 @@
+<div class="container">
 <h1>you are here</h1>
+
 
 
 <div id="playlist">
 	<h3> About <%= @playlist.name %> playlist </h3>
 	<p> Number of tracks: <%= @playlist.songs.count %>
-	<ol>
+	<ol class ="list-group">
 		<% @playlist.songs.each do |song| %>
-			<li> <%= song.name %> by <%= song.artist.name %></li>
+			<li class="list-group-item"> <%= song.name %> by <%= song.artist.name %></li>
 				<ul>
-					<li> About the track: 
+					<li class="list-group-item"> About the track: 
 						 <%= song.view_summary %></li> <br>
-					<li>  About <%= song.artist.name %>: 
+					<li class="list-group-item">  About <%= song.artist.name %>: 
 						<br> 
 						<img src="<%= song.artist.image %>"> <br>
-						<%= song.artist.view_summary %></li><br>
-					<li>  About the album: 
+						<%= song.artist.view_summary %></li>
+					<li class="list-group-item">  About the album: 
 						<br>
 						<img src="<%= song.album.image %>"><br>
 						<%= song.album.name %> <br>

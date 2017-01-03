@@ -14,11 +14,63 @@
  *= require_self
  */
 
-.navbar {
-	background-color: #707E43;
+body {
+	background-color: #194ec4;
+	font-family: 'Muli', sans-serif;
 }
 
+.centered {
+	display:block;
+    width: 40%;
+    margin:0 auto;
+    top: 50%;
+    left: 50%;
+    /*margin-top: -50px;*/
+/*    margin-left: -100px;*/
+}
 
 #banner {
 	color: white;
+}
+
+/*#playlist {
+	overflow-y: scroll;
+	position: fixed;
+}*/
+
+#test {
+	border: solid 5px white;
+	border-radius: 5px;
+	padding: 10px;
+	background-color: white;
+}
+
+#form-header {
+	color: white;
+	font-family: 'Reem Kufi', sans-serif;
+	font-size: 70px;
+
+}
+
+.btn-outline-secondary {
+	background-color: white;
+	color: #194ec4;
+	border: 1px solid;
+	border-color: #194ec4;
+}
+
+.input-field {
+	border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 2px solid #ff6557;;
+    width: 70%;
+    padding: 5px;
+}
+
+
+.form-group {
+	color: #ff6557;
+	padding: 5px;
+	font-size:14px;
 }

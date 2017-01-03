@@ -14,3 +14,11 @@
  *= require_self
  */
 
+.navbar {
+	background-color: #707E43;
+}
+
+
+#banner {
+	color: white;
+}

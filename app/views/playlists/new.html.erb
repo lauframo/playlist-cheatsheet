@@ -1,13 +1,22 @@
-<h1> Get Your Playlist Info </h1>
+<h1 class="text-center header" id="app-header"> get your playlist info </h1><br> <br>
+<div class="centered" id="form-box">
 
-<%= form_for(@playlist) do |f| %>
-	<%= f.label :username %> 
-	<%= f.text_field :username %> <br> <br>
-	<%= f.label :playlist_id, "Playlist ID" %>
-	<%= f.text_field :playlist_id %><br> <br>
-	<%= f.submit "Look Up My playlist" %>
-<% end %> 
+	<%= form_for @playlist, :html => { :class => "form-inline center-block"} do |f| %>
+		<div class="form-group">
+			<%= f.label :username, for: "inputusername" %> 
+			<%= f.text_field :username, class: "input-field", id: "inputusername" %> <br> <br>
+		</div>
+		<div class="form-group">
+			<%= f.label :playlist_id, "Playlist ID", for: "inputplaylist" %>
+			<%= f.text_field :playlist_id, class: "input-field", for: "inputplaylist"  %><br> <br>
+		</div>
+		<br>
+		<!-- <div class="form-group"> -->
+			<%= f.submit "look up my playlist", class: "btn btn-outline-secondary center-block" %>
+		<!-- </div> -->
+	<% end %> 
 
+</div>
 
 <br>
 <br>

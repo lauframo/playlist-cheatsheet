@@ -6,6 +6,11 @@ class Album < ApplicationRecord
 
 	validates :name, presence: true, uniqueness: { scope: :artist_id }
 
+	def view_summary
+		self.summary.gsub(/\s\W[a-z]\s.*\W/, '')
+	end
+
+	private
 
 	def get_data
 		summary = LastFM::Album.get_info(artist: Artist.find_by(id: self.artist_id).name, album: self.name)["album"]

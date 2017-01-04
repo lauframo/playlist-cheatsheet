@@ -10,6 +10,10 @@ class Song < ApplicationRecord
 	validates :name, presence: true, uniqueness: { scope: :artist_id }
 	validates_presence_of :name, :artist_id, :album_id
 
+	def view_summary
+		self.summary.gsub(/\s\W[a-z]\s.*\W/, '')
+	end
+
 	private
 
 	def get_summary

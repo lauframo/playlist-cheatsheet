@@ -31,24 +31,61 @@ body {
 
 #banner {
 	color: white;
+	font-family: 'Reem Kufi', sans-serif;
+	margin: 5px;
 }
 
-/*#playlist {
-	overflow-y: scroll;
-	position: fixed;
+/*#playlist-header {
+
+
 }*/
 
-#test {
+.pre-scrollable {
+	max-height: 600px;
+	padding: 10px;
+}
+
+#track-header {
+	color: #ff6557;
+	font-size: 20px;
+	padding: 30px;
+}
+
+#playlist {
+	background-color: white;
+	padding: 20px;
+	width: 75%;
+	color: black;
+}
+
+#form-box {
 	border: solid 5px white;
 	border-radius: 5px;
 	padding: 10px;
 	background-color: white;
 }
 
-#form-header {
+
+.header {
 	color: white;
 	font-family: 'Reem Kufi', sans-serif;
+	
+}
+
+
+#playlist-header {
+	font-size: 50px;
+	width: 65%;
+
+}
+#app-header {
 	font-size: 70px;
+	/*width: 65%;*/
+
+}
+
+#track-counter {
+	color: white;
 
 }
 

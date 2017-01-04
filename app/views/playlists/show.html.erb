@@ -1,26 +1,47 @@
 <div class="container">
-<div id="playlist">
-	<h3> About <%= @playlist.name %> playlist </h3>
-	<span> Number of tracks: <%= @playlist.songs.count %> </span>
-	<ul class ="list-group">
-		<% @playlist.songs.each do |song| %>
-			<li class="list-group-item list-group-item-action"> 
-				<h4><b>"<%= song.name %>" by <%= song.artist.name %></b> </h4>
+	<h3 class="header" id="playlist-header"> about <%= @playlist.name %> playlist </h3>
+		<span><p id="track-counter"> number of tracks: <%= @playlist.songs.count %> </p></span>
+	<div class="container pre-scrollable" id="playlist">
+		<ol class ="list-group">
+			<% @playlist.songs.each do |song| %>
+			<!-- <li class="list-group-item list-group-item-action">  -->
+				<h4 id="track-header"><b> <li>"<%= song.name %>" by <%= song.artist.name %></b> </h4> 
 				<ul>
-					<li> About the track: 
-						 <%= song.view_summary %></li> <br>
-					<li>  About <%= song.artist.name %>: 
-						<br> 
-						<img src="<%= song.artist.image %>"> <br>
-						<%= song.artist.view_summary %></li>
-					<li>  About the album: 
-						<br>
-						<img src="<%= song.album.image %>"><br>
-						<%= song.album.name %> <br>
-						<%= song.album.view_summary %>
-						<br>
-					</li></li><br>
+					<div class="row">
+					<div class="card-columns">
+						<div class="col-sm-4 pre-scrollable">	
+							<div class="card card-block">
+							<!-- <li>  -->
+								<h4 class="card-title"><b>about the track </h4> 
+								<p class="card-text"> <%= song.view_summary %></p>
+							</div>
+							<!-- </li> -->
+						</div>
+				<!-- 	<li>   -->
+						<div class="col-sm-4 pre-scrollable">
+							<div class="card">
+								<img class="card-img-top" src="<%= song.artist.image %>" alt="Card image cap">
+								<div class="card-block">
+									<h4 class="card-title"><b> About <%= song.artist.name %></b></h4>
+									<p class="card-text"><%= song.artist.view_summary %></p>
+								</div>
+							</div>
+						</div>
+							<!-- </li> -->
+
+					<!-- <li>   -->
+						<div class="col-sm-4 pre-scrollable">
+							<img src="<%= song.album.image %>"><br>
+							<h4> <b> About <%= song.album.name %></b> </h4>
+							<p><%= song.album.view_summary %></p>
+							<br>
+						</div>
+						</div>
+
+<!-- 					</li></li><br> -->
+					</div>
 				</ul>
+				</li>
 		<% end %>
-	</ul>
+	</ol>
 </div>	

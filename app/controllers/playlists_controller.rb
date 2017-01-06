@@ -3,21 +3,21 @@ class PlaylistsController < ApplicationController
 
 	def index
 		@playlist = Playlist.new
-		# @playlist = Playlist.find_by(username: params[:username], playlist_id: [params:playlist_id])
-		# p @playlist
-		# redirect_to @playlist, id: @playlist.id
 	end
 
 	def search
-		p params
 		@playlist = Playlist.find_by(username: params[:username], playlist_id: params[:playlist_id])
-		p @playlist
-		redirect_to @playlist, id: @playlist.id
+		if @playlist
+			redirect_to @playlist
+		else
+			@errors = ["Username or playlist not found"]
+			render 'index'
+		end
+
 	end
 
 	def show 
 		@playlist = Playlist.find_by(id: params[:id])
-		p @playlist
 	end
 
 
@@ -30,6 +30,7 @@ class PlaylistsController < ApplicationController
 		if @playlist.save
 			redirect_to @playlist
 		else
+			@errors = @playlist.errors.full_messages
 			render 'new'
 		end
 	end

@@ -1,6 +1,8 @@
 <h1 class="text-center header" id="app-header"> get your playlist info </h1><br> <br>
 <div class="centered" id="form-box">
 	<%= form_tag("/search", method: :get, :html => { :class => "form-inline center-block"}) do %> 
+		<%=  render "errors" %>
+
 		<div class="form-group">
 			<%= label_tag :username %>
 			<%= text_field_tag :username, params[:username], class: "input-field", id: "inputusername" %>

@@ -6,7 +6,7 @@ class Playlist < ApplicationRecord
 	before_save :get_tracks
 
 	validates_presence_of :username, :playlist_id
-	validates_uniqueness_of :playlist_id
+	validates_uniqueness_of :playlist_id, { scope: :username }
 
 	private
 

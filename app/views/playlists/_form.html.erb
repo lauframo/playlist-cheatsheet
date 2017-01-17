@@ -2,7 +2,7 @@
 
 	<%= form_for @playlist, :html => { :class => "form-inline center-block"} do |f| %>
 
-		<%= render "errors" %>
+		<%= render "errors", locals: { errors: @playlist.errors } %>
 
 		<div class="form-group">
 			<%= f.label :username, for: "inputusername" %> 

@@ -1,4 +1,4 @@
-		<% if @errors.any? %>
+		<% if @playlist.errors.any? %>
 			<div class="alert alert-danger" role="alert">
 				<ul><%  @errors.each do |message| %>
 					<li><%= message %></li>

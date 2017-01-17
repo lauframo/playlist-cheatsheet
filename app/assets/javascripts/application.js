@@ -12,5 +12,31 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require angular
 //= require_tree .
+
+var playlistCheat = angular.module('playlistCheat', []);
+
+playlistCheat.controller('PlaylistController', ['$scope', '$http', function($scope, $http){
+
+	$scope.message = "woops";
+
+
+
+	// $scope.getID = function(number) {
+	// 	// console.log(number)
+	// 	hello = number
+	// 	return number;
+	// }
+
+	// // var hello = $scope.getID()
+
+	// // console.log($scope.getID())
+	// console.log(hello)
+
+	$http.get('/3.json').success(function(data) {
+		console.log(data);
+
+	});
+
+}]);

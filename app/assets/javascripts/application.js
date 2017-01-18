@@ -15,28 +15,45 @@
 //= require angular
 //= require_tree .
 
-var playlistCheat = angular.module('playlistCheat', []);
+// (function() {
 
-playlistCheat.controller('PlaylistController', ['$scope', '$http', function($scope, $http){
+// 	var playlistCheat = angular.module('playlistCheat', []);
 
-	$scope.message = "woops";
+// 	playlistCheat.controller('PlaylistController', ['$scope', '$http', function($scope, $http){
 
+// 		this.message = "hello";
 
+// 		// this.id = function(number)  {
+// 		// 	return number;
+// 		// }
 
-	// $scope.getID = function(number) {
-	// 	// console.log(number)
-	// 	hello = number
-	// 	return number;
-	// }
+// 		$scope.id = 0
+// 		test = 0
+// 		console.log(typeof test)
 
-	// // var hello = $scope.getID()
+// 		$scope.getID = function(number) {
+// 			// console.log($scope.id)
+// 			console.log(test)
+// 			// console.log(number)
+// 			// console.log(id)
 
-	// // console.log($scope.getID())
-	// console.log(hello)
+// 			test += number
+// 			console.log(test)
+// 			// return number;
+// 		}
 
-	$http.get('/3.json').success(function(data) {
-		console.log(data);
+// 		console.log(test)
 
-	});
+// 		// var hello = $scope.getID()
 
-}]);
+// 		// // console.log($scope.getID())
+// 		// console.log($scope.id)
+
+// 		$http.get('/playlists/3.json').success(function(data) {
+// 			console.log(data);
+
+// 		// });
+
+// 	}]);
+
+// })();

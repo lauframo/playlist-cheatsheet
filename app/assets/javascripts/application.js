@@ -12,5 +12,48 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require angular
 //= require_tree .
+
+// (function() {
+
+// 	var playlistCheat = angular.module('playlistCheat', []);
+
+// 	playlistCheat.controller('PlaylistController', ['$scope', '$http', function($scope, $http){
+
+// 		this.message = "hello";
+
+// 		// this.id = function(number)  {
+// 		// 	return number;
+// 		// }
+
+// 		$scope.id = 0
+// 		test = 0
+// 		console.log(typeof test)
+
+// 		$scope.getID = function(number) {
+// 			// console.log($scope.id)
+// 			console.log(test)
+// 			// console.log(number)
+// 			// console.log(id)
+
+// 			test += number
+// 			console.log(test)
+// 			// return number;
+// 		}
+
+// 		console.log(test)
+
+// 		// var hello = $scope.getID()
+
+// 		// // console.log($scope.getID())
+// 		// console.log($scope.id)
+
+// 		$http.get('/playlists/3.json').success(function(data) {
+// 			console.log(data);
+
+// 		// });
+
+// 	}]);
+
+// })();

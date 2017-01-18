@@ -1,6 +1,8 @@
+
 <div class="container">
 	<h3 class="header" id="playlist-header"> about <%= @playlist.name %> playlist </h3>
-		<span><p id="track-counter"> number of tracks: <%= @playlist.songs.count %> </p></span>
+		<span><p id="track-counter"> number of tracks: <%= @playlist.songs.count %> </p>
+		</span>
 	<div class="container pre-scrollable" id="playlist">
 		<ol class ="list-group">
 			<% @playlist.songs.each do |song| %>

@@ -30,6 +30,7 @@ class PlaylistsController < ApplicationController
 		if @playlist.save
 			redirect_to @playlist
 		else
+			p @playlist.errors.full_messages
 			@errors = @playlist.errors.full_messages
 			render 'new'
 		end

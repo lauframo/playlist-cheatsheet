@@ -17,14 +17,13 @@ class Playlist < ApplicationRecord
 	end
 
 	def get_tracks
-		tracks = spotify_playlist.tracks
-		tracks.each do |track|
-			artist = Artist.find_or_create_by(name: track.artists.first.name)
-			album = Album.find_or_create_by(name: track.album.name, artist_id: artist.id)
-			self.songs << Song.find_or_create_by(name: track.name, artist_id: artist.id, album_id: album.id)
-		end
+			tracks = spotify_playlist.tracks
+			tracks.each do |track|
+				artist = Artist.find_or_create_by(name: track.artists.first.name)
+				album = Album.find_or_create_by(name: track.album.name, artist_id: artist.id)
+				self.songs << Song.find_or_create_by(name: track.name, artist_id: artist.id, album_id: album.id)
+			end	
 	end
-
-
-
 end
+
+

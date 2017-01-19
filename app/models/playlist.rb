@@ -11,25 +11,19 @@ class Playlist < ApplicationRecord
 	private
 
 	def spotify_playlist
-		begin
-			@spotify_playlist = RSpotify::Playlist.find(self.username, self.playlist_id)
-			self.name = @spotify_playlist.name
-			return @spotify_playlist
-		rescue RestClient::ResourceNotFound
-			self.errors.add(:base, "Playlist does not exist or cannot be found")
-		end
-		
+		@spotify_playlist = RSpotify::Playlist.find(self.username, self.playlist_id)
+		self.name = @spotify_playlist.name
+		return @spotify_playlist
 	end
 
 	def get_tracks
-		tracks = spotify_playlist.tracks
-		tracks.each do |track|
-			artist = Artist.find_or_create_by(name: track.artists.first.name)
-			album = Album.find_or_create_by(name: track.album.name, artist_id: artist.id)
-			self.songs << Song.find_or_create_by(name: track.name, artist_id: artist.id, album_id: album.id)
-		end
+			tracks = spotify_playlist.tracks
+			tracks.each do |track|
+				artist = Artist.find_or_create_by(name: track.artists.first.name)
+				album = Album.find_or_create_by(name: track.album.name, artist_id: artist.id)
+				self.songs << Song.find_or_create_by(name: track.name, artist_id: artist.id, album_id: album.id)
+			end	
 	end
-
-
-
 end
+
+
